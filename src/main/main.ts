@@ -62,8 +62,8 @@ function send_mail(filePath,email,event){
   const transporter = nodemailer.createTransport({
     service: 'gandi',
     auth: {
-      user: 'bazilika@gifie.me',
-      pass: 'Bazilika111!'
+      user: 'email here',
+      pass: 'password here'
     }
   });
 
@@ -76,7 +76,7 @@ function send_mail(filePath,email,event){
     <br>
     `
     transporter.sendMail({
-      from: 'bazilika@gifie.me',
+      from: 'email here',
       to: email,
       subject: 'Bazilika',
       // text: 'Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál. Alább megtalálod csatolt fájlként a vásárban készült képedet! Boldog Karácsonyt kívánunk! ',
