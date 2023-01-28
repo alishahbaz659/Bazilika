@@ -1,5 +1,5 @@
 # Bazilika
- Selfie taking program running on windows 10, with a Logitech Brio camera in Potrait mode. IInstalled in Kiosk which is placed in front of Buddapest building in Hungary.
+ Selfie taking program developed using electron react boilerplate, with a Logitech Brio camera in Potrait mode. IInstalled in Kiosk which is placed in front of Buddapest building in Hungary.
  
 1. Looped video running to attract user to screen
 2. Once the screen is touched this screen appears
