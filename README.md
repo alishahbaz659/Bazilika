@@ -10,4 +10,5 @@ if you select the German flag, it would say Frohe Weinachten, etc...
 5. After selecting language user can click the camera icon and after a 3 seconds
 countdown a photo is taken and can be sent out via email
 6. After the email is sent, the screen goes back to the attract/idle screen
+
 ![alt text](https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true)
