@@ -1,0 +1,40 @@
+.homeContainer {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.designChoose {
+  color: #FFFFFF;
+}
+
+.designChoose h2 {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.designChoose a {
+  font-size: 1rem;
+}
+
+select {
+  width: 100%;
+  background: #0070F2;
+  border: 0;
+  color: var(--text);
+  outline: 0;
+  text-shadow: 1px 1px black;
+  font-size: large;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+select option {
+  outline: 0;
+  text-shadow: 1px 1px black;
+}

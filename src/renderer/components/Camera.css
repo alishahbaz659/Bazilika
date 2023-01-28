@@ -1,0 +1,288 @@
+.camContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.screenSaverContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.webcamMainContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.webcamMainContainerScreenSaver{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 90%;
+  /* margin-top: 85%; */
+
+}
+
+.takeSelfie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.overlayDesignStyle {
+    height:40px;
+    width:40px;
+    border: 4px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+
+.webcamContainer {
+  width: 270px;
+  height: 150px;
+}
+
+.btnGroup {
+  display: flex;
+}
+
+.countryFlag {
+  height:30;
+  width:30;
+  border-radius:100;
+  padding:5;
+  opacity: 0.4;
+}
+
+
+
+.btn {
+  background: #0070F2;
+  border-radius: 12px;
+
+  color: white;
+  text-shadow: 1px 1px black;
+  transition: transform 0.5s;
+  outline: 0;
+  margin: 1rem;
+}
+
+.icn {
+  height: 18px;
+  width: 18px;
+  margin: 5px;
+
+
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(5px);
+}
+
+video {
+  display: block;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+
+.parent-wrapper {
+  height:100%;
+  width:50%;
+
+}
+.parent {
+
+  font-size: 0;
+  flex-wrap:wrap;
+  margin:-10px 0 0 -10px;
+
+}
+.child {
+  display: inline-block;
+  background: white;
+  margin: 10px 0 0 3%;
+  flex-grow: 1;
+  height: 100px;
+  width: calc(100% * (1/4) - 10px - 1px);
+}
+
+.agreeContainer {
+  width: 800;
+  height: 300;
+  margin: 100px auto;
+}
+
+.selected {
+
+  opacity: 1 !important;
+
+}
+
+@font-face {
+  font-family: myFont;
+  src: url(../fonts/Titling.otf);
+}
+
+
+.webCamBorder{
+  /* outline: 4px solid blue; */
+  background-image: url("../BackgroundImages/imageFrame.png");
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.overlay-container {
+  position: absolute ;
+  width: 34%;
+  top: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  left: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  /* opacity: 0.4; */
+}
+
+.textOverlay {
+
+  /* to align it to top */
+  /* position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column-reverse; */
+
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  font-size:small;
+  font-family: myFont;
+
+
+  /* opacity: 0.4; */
+}
+
+.textOverlayTimer {
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column-reverse;
+}
+
+
+
+
+.overlayText{
+  font-size:small;
+  font-family: myFont;
+  height: 100%;
+}
+
+.labelStyle{
+  text-align: center;
+  justify-content: center;
+  /* align-self: center;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  align-content: center; */
+  font-size:small;
+  font-family: myFont;
+}
+
+.timerStyle{
+  color:"white";
+  font-weight:bold;
+  font-family:myFont;
+  justify-content: center;
+  font-size: 80px;
+  z-index:100;
+  text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em red;
+}
+
+.textStyle{
+  color:"white";
+  font-weight:bold;
+  font-family:myFont;
+  font-size: x-large;
+}
+
+.textStyleScreenSaver{
+  color:"white";
+  font-weight:bold;
+  font-family:myFont;
+  font-size: large;
+  text-align: center;
+}
+
+
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.containerLayover   {
+  position: relative;
+  float: left;
+}
+
+#custom-target {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-style: solid;
+}
+
+.align-left {
+  text-align: left;
+  height: 28em;
+  overflow-y: scroll;
+}
+

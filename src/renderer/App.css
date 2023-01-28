@@ -1,0 +1,172 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+/* ::-webkit-scrollbar {display:none;} */
+html,
+body {
+
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  position: relative !important;
+  color: white !important;
+  /* height: 100vh;
+  background-image: url("./BackgroundImages/background.tsx"); */
+
+  background-color: #D01417 !important;
+  /* background-color: #D02027 !important; */
+/* #D02027 */
+  background-size: cover !important;
+  font-family: sans-serif !important;
+  /* overflow-y:visible !important; */
+  overflow: hidden;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+button {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  appearance: none;
+  font-size: 1.3rem;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+  margin: 10px;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.Hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.about {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+.fullpage {
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+
+}
+
+.cameraChoosecontainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.cameraChoose {
+  color: #FFFFFF;
+}
+
+.cameraChoose h2 {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.cameraChoose a {
+  font-size: 1rem;
+}
+
+select {
+  width: 100%;
+  background: #0070F2;
+  border: 0;
+  color: var(--text);
+  outline: 0;
+  text-shadow: 1px 1px black;
+  font-size: large;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+select option {
+  outline: 0;
+  text-shadow: 1px 1px black;
+}
+
+.creditsLink {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  font-size: small;
+  bottom: 1rem;
+  left: 0;
+}
+
+.version {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8rem;
+  margin: 10px;
+}
+

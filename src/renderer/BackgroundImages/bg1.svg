@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 919.49 660.03">
+  <defs>
+    <radialGradient id="a" gradientUnits="userSpaceOnUse" cy="494.38" cx="1297.3"
+    gradientTransform="matrix(2.954 -.00516 .00332 1.2323 -3404.9 72.005)" r="267.8">
+      <stop style="stop-color:#312650" offset="0" />
+      <stop style="stop-color:#312650" offset="1" />
+    </radialGradient>
+  </defs>
+  <g transform="translate(30.78 -344.53)">
+    <rect style="fill-rule:evenodd;fill:url(#a)" rx="0" ry="4.264" height="660.03" width="919.49" y="344.53" x="-30.78" />
+  </g>
+</svg>
