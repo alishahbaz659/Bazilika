@@ -1,14 +1,60 @@
 # Bazilika
- Selfie taking program developed using electron react boilerplate, with a Logitech Brio camera in Potrait mode. IInstalled in Kiosk which is placed in front of Buddapest building in Hungary.
- 
-1. Looped video running to attract user to screen
-2. Once the screen is touched this screen appears
-3. (Please ignore #1 Choose Your Style)
-4. When the user selects language that effects the final design overlay of thePhoto.
-For example choosing the UK flag their would be an overlay saying Merry Christmas,
-if you select the German flag, it would say Frohe Weinachten, etc...
-5. After selecting language user can click the camera icon and after a 3 seconds
-countdown a photo is taken and can be sent out via email
-6. After the email is sent, the screen goes back to the attract/idle screen
+
+This project is a selfie-taking application developed using the Electron React boilerplate, designed to work with a Logitech Brio camera in portrait mode. The application is installed in a kiosk placed in front of a building in Budapest, Hungary, during Christmas 2023.
+
+## Features
+
+1. **Attract Loop**: A looping video runs to attract users to the screen.
+2. **Interactive Screen**: The main screen appears once the screen is touched, initiating user interaction.
+3. **Language Selection**:
+    - Users can select their preferred language, which affects the final design overlay of the photo.
+    - For example:
+        - Selecting the UK flag results in an overlay saying "Merry Christmas".
+        - Selecting the German flag results in an overlay saying "Frohe Weihnachten".
+4. **Photo Capture**:
+    - After selecting a language, users can click the camera icon.
+    - A 3-second countdown is displayed before the photo is taken.
+5. **Email Functionality**:
+    - The captured photo can be sent out via email.
+6. **Return to Idle**:
+    - After the email is sent, the screen returns to the attract/idle screen.
+
+## Installation
+
+To run this application, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/selfie-taking-program.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd selfie-taking-program
+    ```
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the application:
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+1. Ensure the Logitech Brio camera is connected and set to portrait mode.
+2. Launch the application and verify the attract loop video is running.
+3. Touch the screen to initiate the interactive mode.
+4. Select the desired language to customize the photo overlay.
+5. Click the camera icon to take a photo after a 3-second countdown.
+6. Enter the email address to send the captured photo.
+7. The application will return to the attract loop after the email is sent.
+
+## License
+
+This project is licensed under the MIT License.
+
+Video Demo:
+https://youtu.be/6Pzmcl48veU
 
 ![alt text](https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true)
