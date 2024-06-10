@@ -50,13 +50,20 @@ To run this application, follow these steps:
 6. Enter the email address to send the captured photo.
 7. The application will return to the attract loop after the email is sent.
 
-## License
+## Demo
 
-This project is licensed under the MIT License.
 
 Video Demo:
 https://youtu.be/6Pzmcl48veU
 
-<img src="https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true" alt="Selfie Taking Kiosk" width="400" height="800">s
+
+![alt text](https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true)
+
+
+
+## License
+
+This project is licensed under the MIT License.
+
 
 
