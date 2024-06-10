@@ -57,4 +57,6 @@ This project is licensed under the MIT License.
 Video Demo:
 https://youtu.be/6Pzmcl48veU
 
+<img src="https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true" alt="Selfie Taking Kiosk" width="400" height="300">s
+
 ![alt text](https://github.com/alishahbaz659/Bazilika/blob/ef5b1bc15f1cae5c047a247960c156dea348a461/Deployed%20Image/image.jpg?raw=true)
