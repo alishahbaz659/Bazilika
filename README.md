@@ -33,7 +33,7 @@ To run this application, follow these steps:
     ```
 3. Install the dependencies:
     ```bash
-    npm install
+    npm install --legacy-peer-deps
     ```
 4. Start the application:
     ```bash
