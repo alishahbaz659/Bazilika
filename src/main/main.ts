@@ -31,16 +31,19 @@ ipcMain.on('ipc-example', (event, arg) => {
 
   const msgTemplate = (pingPong: string) => `${pingPong}`;
   // console.log(msgTemplate(arg));
+    // Get the userData directory and create a subdirectory for captured images
+  const dir = path.join(app.getPath('userData'), 'captured_images');
 
-    const dir = "/captured_images";
-    if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir);
-      console.log("Folder did't exist, new folder created");
-    }
+    // Ensure the directory exists
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true }); // Create the directory, including parent folders if needed
+    console.log("Folder didn't exist, new folder created");
+  }
 
     const data = msgTemplate(arg).replace(/^data:image\/\w+;base64,/, "");
 
-    const filePath= path.join(`/captured_images/image${Date.now()}.png`);
+    // Update filePath to use the correct directory path
+    const filePath = path.join(dir, `image${Date.now()}.png`);
 
     const imageBuffer = Buffer.from(data, "base64");
 
@@ -62,8 +65,8 @@ function send_mail(filePath,email,event){
   const transporter = nodemailer.createTransport({
     service: 'gandi',
     auth: {
-      user: 'email here',
-      pass: 'password here'
+      user: 'bazilika@gifie.me',
+      pass: 'Bazilika111!'
     }
   });
 
@@ -76,7 +79,7 @@ function send_mail(filePath,email,event){
     <br>
     `
     transporter.sendMail({
-      from: 'email here',
+      from: 'bazilika@gifie.me',
       to: email,
       subject: 'Bazilika',
       // text: 'Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál. Alább megtalálod csatolt fájlként a vásárban készült képedet! Boldog Karácsonyt kívánunk! ',
@@ -142,8 +145,8 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
-    frame:false,
-    fullscreen:true,
+    frame:true,
+    fullscreen:false,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       devTools:!app.isPackaged,

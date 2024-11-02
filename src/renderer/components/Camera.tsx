@@ -675,88 +675,88 @@ export default function Camera(props) {
             if (result.isConfirmed) {
 
               var node = document.getElementById('webcamdiv');
-
-              htmlToImage.toPng(node, { quality: 1,canvasWidth:1920,canvasHeight:1080,pixelRatio:1})
-              .then(function (dataUrl) {
-                // var img = new Image();
-                // img.src = dataUrl;
-                // saveAs(dataUrl, 'exported-vis.png')
-
-                const imageSrc =dataUrl;
-
-                (async () => {
-                  const { value: email } = await Swal.fire({
-                    title: 'LET US SHARE YOUR SELFIE WITH YOU !',
-                    input: 'email',
-                    inputPlaceholder: 'Enter your email address',
-                    showCancelButton: true,
-                    allowOutsideClick:false,
-                  })
-
-                  if (email) {
-                    Swal.fire({
-                      title: 'Sending...',
-                      html: 'Please wait...',
-                      allowEscapeKey: false,
-                      allowOutsideClick: false,
-                      timer: 20000,
-                      timerProgressBar: true,
-                      didOpen: () => {
-                        Swal.showLoading()
-                      }
-                    }).then((result) => {
-                      if (result.dismiss === Swal.DismissReason.timer) {
-                        Swal.fire({
-                          icon: 'error',
-                          title: 'Oops...',
-                          text: 'Internet connectivity issue! Please try again',
-                        })
+              if(node){
+                htmlToImage.toPng(node, { quality: 1,canvasWidth:1920,canvasHeight:1080,pixelRatio:1})
+                .then(function (dataUrl) {
+                  // var img = new Image();
+                  // img.src = dataUrl;
+                  // saveAs(dataUrl, 'exported-vis.png')
+  
+                  const imageSrc =dataUrl;
+  
+                  (async () => {
+                    const { value: email } = await Swal.fire({
+                      title: 'LET US SHARE YOUR SELFIE WITH YOU !',
+                      input: 'email',
+                      inputPlaceholder: 'Enter your email address',
+                      showCancelButton: true,
+                      allowOutsideClick:false,
+                    })
+  
+                    if (email) {
+                      Swal.fire({
+                        title: 'Sending...',
+                        html: 'Please wait...',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        timer: 20000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                          Swal.showLoading()
+                        }
+                      }).then((result) => {
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                          Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Internet connectivity issue! Please try again',
+                          })
+                          setPicture("");
+                          // setSourceLang("");
+                          // setSource(overlayDesign1);
+                          // setScreenSaverStatus(true);
+                          // updateUI();
+                          // console.log('Failed! Internet connectivity issue')
+                        }
+                      });
+                      window.electron.ipcRenderer.sendMessage('ipc-example', [imageSrc,email]);
+                      // calling IPC exposed from preload script
+  
+                      window.electron.ipcRenderer.once('ipc-example', (arg) => {
+                        Swal.hideLoading()
+                        Swal.close()
+                        mailSentToast();
                         setPicture("");
-                        // setSourceLang("");
-                        // setSource(overlayDesign1);
-                        // setScreenSaverStatus(true);
-                        // updateUI();
-                        // console.log('Failed! Internet connectivity issue')
-                      }
-                    });
-                    window.electron.ipcRenderer.sendMessage('ipc-example', [imageSrc,email]);
-                    // calling IPC exposed from preload script
-
-                    window.electron.ipcRenderer.once('ipc-example', (arg) => {
-                      Swal.hideLoading()
-                      Swal.close()
-                      mailSentToast();
+                        setSourceLang("");
+                        setSource(overlayDesign1);
+                        setScreenSaverStatus(true);
+                        updateUI();
+                      });
+                    }else{
                       setPicture("");
-                      setSourceLang("");
-                      setSource(overlayDesign1);
-                      setScreenSaverStatus(true);
-                      updateUI();
-                    });
-                  }else{
-                    setPicture("");
-                    // setSourceLang("");
-                    // setSource(overlayDesign1);
-                    // setScreenSaverStatus(true);
-                    // updateUI();
-                  }
-
-                })()
-
-
-              })
-              .catch(function (error) {
-                console.error('oops, something went wrong!', error);
-              });
-            } else{
-              setPicture("");
-              // setSourceLang("");
-              // setSource(overlayDesign1);
-
-              // setScreenSaverStatus(true);
-              // updateUI();
-              // Swal.fire(' Cancelled', '', 'error')
-            }
-
+                      // setSourceLang("");
+                      // setSource(overlayDesign1);
+                      // setScreenSaverStatus(true);
+                      // updateUI();
+                    }
+  
+                  })()
+  
+  
+                })
+                .catch(function (error) {
+                  console.error('oops, something went wrong!', error);
+                });
+              } else{
+                setPicture("");
+                // setSourceLang("");
+                // setSource(overlayDesign1);
+  
+                // setScreenSaverStatus(true);
+                // updateUI();
+                // Swal.fire(' Cancelled', '', 'error')
+              }
+              }
           })
         }
 
