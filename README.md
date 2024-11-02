@@ -34,6 +34,7 @@ To run this application, follow these steps:
 3. Install the dependencies:
     ```bash
     npm install --legacy-peer-deps
+    npm install sass-loader@latest sass@latest --save-dev --legacy-peer-deps
     ```
 4. Start the application:
     ```bash
