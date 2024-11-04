@@ -63,10 +63,12 @@ function send_mail(filePath,email,event){
 
   const msgTemplate = (pingPong: string) => `${pingPong}`;
   const transporter = nodemailer.createTransport({
-    service: 'gandi',
+    host: 'smtp.m1.websupport.sk', // The SMTP host provided by the client
+    port: 587, // Use 587 for TLS (recommended) or 465 for SSL
+    secure: false, // False for TLS (port 587), true for SSL (port 465)
     auth: {
-      user: 'bazilika@gifie.me',
-      pass: 'Bazilika111!'
+      user: 'adventbazilika@gifie.hu', // Your email address
+      pass: 'Advent123!' // Your password
     }
   });
 
@@ -79,7 +81,7 @@ function send_mail(filePath,email,event){
     <br>
     `
     transporter.sendMail({
-      from: 'bazilika@gifie.me',
+      from: 'adventbazilika@gifie.hu',
       to: email,
       subject: 'Bazilika',
       // text: 'Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál. Alább megtalálod csatolt fájlként a vásárban készült képedet! Boldog Karácsonyt kívánunk! ',
@@ -91,7 +93,6 @@ function send_mail(filePath,email,event){
         console.log(err);
         reject(err);
       }else{
-
         resolve(success)
         console.log("Mail sent");
         event.reply('ipc-example', msgTemplate('mailSent'));
