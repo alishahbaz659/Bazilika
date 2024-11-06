@@ -145,10 +145,10 @@ const createWindows = async () => {
   mainWindow = new BrowserWindow({
     x: laptopScreen.bounds.x,
     y: laptopScreen.bounds.y,
-    width: 1280,
-    height: 800,
-    frame: true,
-    fullscreen: false,
+    width: 1024,
+    height: 728,
+    frame: false,
+    fullscreen: true,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       devTools: !app.isPackaged,
@@ -184,15 +184,30 @@ const createWindows = async () => {
     y: externalScreen.bounds.y,
     width: 1920,
     height: 1080,
-    frame: false,
-    fullscreen: true,
+    frame: true,
+    fullscreen: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      devTools: true,
+      allowRunningInsecureContent: true,
+      webSecurity: false,
+      preload: app.isPackaged
+        ? path.join(__dirname, 'preload.js')
+        : path.join(__dirname, '../../.erb/dll/preload.js'),
     },
   });
 
+  projectorWindow.webContents.openDevTools();
   projectorWindow.loadFile('src/renderer/projector.html');
+
+//   const projectorFilePath = app.isPackaged
+//   ? path.join(__dirname, '../renderer/projector.html')
+//   : path.join(__dirname, '../../src/renderer/projector.html');
+
+// projectorWindow.loadFile(projectorFilePath);
+ 
+
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
@@ -203,9 +218,16 @@ const createWindows = async () => {
     return { action: 'deny' };
   });
 
+
+  projectorWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
+    console.error(`Failed to load projector window: ${errorCode} - ${errorDescription}`);
+  });
+  
+
+
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  // new AppUpdater();
 };
 
 /**
