@@ -24,7 +24,7 @@ class AppUpdater {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
-
+console.log("sd")
 let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', (event, arg) => {
