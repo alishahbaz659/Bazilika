@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-  <div id="display-text">Waiting for language selection...</div>
+  <div id="display-text"></div>
   <script>
     const { ipcRenderer } = require('electron');
     ipcRenderer.on('update-language', (event, language) => {

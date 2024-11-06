@@ -269,6 +269,7 @@ export default function Camera(props) {
     setSource(overlayDesign1);
     setScreenSaverStatus(true);
     updateUI();
+    window.electron.ipcRenderer.send("language-changed", "");
     console.log("Going back to idle screen");
   }
 
@@ -394,7 +395,7 @@ export default function Camera(props) {
     setSource(overlayDesign1);
     setScreenSaverStatus(true);
     updateUI();
-
+    window.electron.ipcRenderer.send("language-changed", "");
 
   }
 
