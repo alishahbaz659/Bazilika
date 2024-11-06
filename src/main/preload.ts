@@ -1,9 +1,12 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
 
-export type Channels = 'ipc-example';
+export type Channels = 'ipc-example' | 'language-changed';
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {
+    send(channel: Channels, ...args: unknown[]) {
+      ipcRenderer.send(channel, ...args);
+    },
     sendMessage(channel: Channels, args: unknown[]) {
       ipcRenderer.send(channel, args);
     },

@@ -21,7 +21,7 @@ body {
 /* #D02027 */
   background-size: cover !important;
   font-family: sans-serif !important;
-  /* overflow-y:visible !important; */
+  overflow-y:visible !important;
   overflow: hidden;
   display: flex !important;
   justify-content: center !important;

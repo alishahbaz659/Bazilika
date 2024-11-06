@@ -24,7 +24,7 @@ import './Camera.css';
 // import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import screenSaver from "../BackgroundImages/screensaver.svg";
-
+const { ipcRenderer } = window.electron;
 
 
 
@@ -281,9 +281,6 @@ export default function Camera(props) {
     });
 
   },[]);
-
-
-
 
   const onChange = input => {
     setInput(input);
@@ -542,98 +539,97 @@ export default function Camera(props) {
     // console.log(target);
   }
   function selectedLanguage(countryCode) {
-
-
-    // console.log(countryCode)
-
-    if(countryCode == "al"){
-      setSourceLang("GËZUAR KRISHTLINDJET NGA BUDAPESTI!");
-    }else if(countryCode=="am"){
-      setSourceLang("ՇՆՈՐՀԱՎՈՐ Սուրբ Ծնունդ ԲՈՒԴԱՊԵՇՏԻՑ:");
-    }else if(countryCode=="ba"){
-      setSourceLang("SRETAN BOŽIĆ IZ BUDIMPEŠTA!");
-    }else if(countryCode=="bg"){
-      setSourceLang("ЧЕСТИТА КОЛЕДА ОТ БУДАПЕЩА!");
-    }else if(countryCode=="hr"){
-      setSourceLang("SRETAN BOŽIĆ IZ BUDIMPEŠTE!");
-    }else if(countryCode=="cz"){
-      setSourceLang("VESELÉ VÁNOCE Z BUDAPEŠTĚ!");
-    }else if(countryCode=="dk"){
-      setSourceLang("GLÆDELIG JUL FRA BUDAPEST!");
-    }else if(countryCode=="ee"){
-      setSourceLang("HÄID JÕULE BUDAPESTIST!");
-    }else if(countryCode=="fi"){
-      setSourceLang("HYVÄÄ JOULUA BUDAPESTISTA!");
-    }else if(countryCode=="fr"){
-      setSourceLang("JOYEUX NOËL DEPUIS BUDAPEST !");
-    }else if(countryCode=="de"){
-      setSourceLang("FROHE WEIHNACHTEN AUS BUDAPEST!");
-    }else if(countryCode=="gr"){
-      setSourceLang("ΚΑΛΑ ΧΡΙΣΤΟΥΓΕΝΝΑ ΑΠΟ ΒΟΥΔΑΠΕΣΤΗ!");
-    }else if(countryCode=="hu"){
-      setSourceLang("BOLDOG KARÁCSONYT BUDAPESTRŐL!");
-    }else if(countryCode=="ie"){
-      setSourceLang("NOLLAG Shona ó Bhúdaipeist!");
-    }else if(countryCode=="is"){
-      setSourceLang("NOLLAG Shona ó Bhúdaipeist!");
-    }else if(countryCode=="il"){
-      setSourceLang("חג שמח מבודפשט!");
-    }else if(countryCode=="it"){
-      setSourceLang("BUON NATALE DA BUDAPEST!");
-    }else if(countryCode=="jp"){
-      setSourceLang("ブダペストからメリークリスマス！");
-    }else if(countryCode=="kp"){
-      setSourceLang("부다페스트에서 온 메리 크리스마스!");
-    }else if(countryCode=="lv"){
-      setSourceLang("LĪCUS ZIEMASSVĒTKUS NO BUDAPESTES!");
-    }else if(countryCode=="lt"){
-      setSourceLang("KALĖDŲ IŠ BUDAPESTO!");
-    }else if(countryCode=="lu"){
-      setSourceLang("SCHÉI SCHÉI KRËSCHDEG VUN BUDAPEST!");
-    }else if(countryCode=="mk"){
-      setSourceLang("СРЕЌЕН БОЖИЌ ОД БУДИМПЕШТА!");
-    }else if(countryCode=="mt"){
-      setSourceLang("IL-MILIED IT-TIENI MINN BUDAPEST!");
-    }else if(countryCode=="no"){
-      setSourceLang("GOD JUL FRA BUDAPEST!");
-    }else if(countryCode=="pl"){
-      setSourceLang("WESOŁYCH ŚWIĄT OD BUDAPESZTU!");
-    }else if(countryCode=="pt"){
-      setSourceLang("FELIZ NATAL DE BUDAPESTE!");
-    }else if(countryCode=="ro"){
-      setSourceLang("CRACIUN FERICIT DE LA BUDAPEST!");
-    }else if(countryCode=="ru"){
-      setSourceLang("С РОЖДЕСТВОМ ИЗ БУДАПЕШТА!");
-    }else if(countryCode=="gb sct"){
-      setSourceLang("Nollaig Chridheil bho BUDAPEST!");
-    }else if(countryCode=="rs"){
-      setSourceLang("СРЕЋАН БОЖИЋ ИЗ БУДИМПЕШТА!");
-    }else if(countryCode=="sk"){
-      setSourceLang("VESELÉ VIANOCE Z BUDAPEŠTI!");
-    }else if(countryCode=="si"){
-      setSourceLang("VESEL BOŽIČ IZ BUDIMPEŠTE!");
-    }else if(countryCode=="es"){
-      setSourceLang("¡FELIZ NAVIDAD DESDE BUDAPEST!");
-    }else if(countryCode=="se"){
-      setSourceLang("GOD JUL FRÅN BUDAPEST!");
-    }else if(countryCode=="th"){
-      setSourceLang("สุขสันต์วันคริสต์มาสจากบูดาเปสต์!");
-    }else if(countryCode=="tr"){
-      setSourceLang("BUDAPEŞTE'DEN MUTLU NOELLER!");
-    }else if(countryCode=="ua"){
-      setSourceLang("З РІЗДВОМ БУДАПЕШТУ!");
-    }else if(countryCode=="vn"){
-      setSourceLang("MERRY CHRISTMAS TỪ BUDAPEST!");
-    }else if(countryCode=="us"){
-      setSourceLang("MERRY CHRISTMAS FROM BUDAPEST!");
-    }else{
-      setSourceLang("MERRY CHRISTMAS FROM BUDAPEST!");
+    let languageText = "";
+  
+    if (countryCode === "al") {
+      languageText = "GËZUAR KRISHTLINDJET NGA BUDAPESTI!";
+    } else if (countryCode === "am") {
+      languageText = "ՇՆՈՐՀԱՎՈՐ Սուրբ Ծնունդ ԲՈՒԴԱՊԵՇՏԻՑ:";
+    } else if (countryCode === "ba") {
+      languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTA!";
+    } else if (countryCode === "bg") {
+      languageText = "ЧЕСТИТА КОЛЕДА ОТ БУДАПЕЩА!";
+    } else if (countryCode === "hr") {
+      languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTE!";
+    } else if (countryCode === "cz") {
+      languageText = "VESELÉ VÁNOCE Z BUDAPEŠTĚ!";
+    } else if (countryCode === "dk") {
+      languageText = "GLÆDELIG JUL FRA BUDAPEST!";
+    } else if (countryCode === "ee") {
+      languageText = "HÄID JÕULE BUDAPESTIST!";
+    } else if (countryCode === "fi") {
+      languageText = "HYVÄÄ JOULUA BUDAPESTISTA!";
+    } else if (countryCode === "fr") {
+      languageText = "JOYEUX NOËL DEPUIS BUDAPEST!";
+    } else if (countryCode === "de") {
+      languageText = "FROHE WEIHNACHTEN AUS BUDAPEST!";
+    } else if (countryCode === "gr") {
+      languageText = "ΚΑΛΑ ΧΡΙΣΤΟΥΓΕΝΝΑ ΑΠΟ ΒΟΥΔΑΠΕΣΤΗ!";
+    } else if (countryCode === "hu") {
+      languageText = "BOLDOG KARÁCSONYT BUDAPESTRŐL!";
+    } else if (countryCode === "ie") {
+      languageText = "NOLLAG Shona ó Bhúdaipeist!";
+    } else if (countryCode === "is") {
+      languageText = "NOLLAG Shona ó Bhúdaipeist!";
+    } else if (countryCode === "il") {
+      languageText = "חג שמח מבודפשט!";
+    } else if (countryCode === "it") {
+      languageText = "BUON NATALE DA BUDAPEST!";
+    } else if (countryCode === "jp") {
+      languageText = "ブダペストからメリークリスマス！";
+    } else if (countryCode === "kp") {
+      languageText = "부다페스트에서 온 메리 크리스마스!";
+    } else if (countryCode === "lv") {
+      languageText = "LĪCUS ZIEMASSVĒTKUS NO BUDAPESTES!";
+    } else if (countryCode === "lt") {
+      languageText = "KALĖDŲ IŠ BUDAPESTO!";
+    } else if (countryCode === "lu") {
+      languageText = "SCHÉI SCHÉI KRËSCHDEG VUN BUDAPEST!";
+    } else if (countryCode === "mk") {
+      languageText = "СРЕЌЕН БОЖИЌ ОД БУДИМПЕШТА!";
+    } else if (countryCode === "mt") {
+      languageText = "IL-MILIED IT-TIENI MINN BUDAPEST!";
+    } else if (countryCode === "no") {
+      languageText = "GOD JUL FRA BUDAPEST!";
+    } else if (countryCode === "pl") {
+      languageText = "WESOŁYCH ŚWIĄT OD BUDAPESZTU!";
+    } else if (countryCode === "pt") {
+      languageText = "FELIZ NATAL DE BUDAPESTE!";
+    } else if (countryCode === "ro") {
+      languageText = "CRACIUN FERICIT DE LA BUDAPEST!";
+    } else if (countryCode === "ru") {
+      languageText = "С РОЖДЕСТВОМ ИЗ БУДАПЕШТА!";
+    } else if (countryCode === "gb sct") {
+      languageText = "Nollaig Chridheil bho BUDAPEST!";
+    } else if (countryCode === "rs") {
+      languageText = "СРЕЋАН БОЖИЋ ИЗ БУДИМПЕШТА!";
+    } else if (countryCode === "sk") {
+      languageText = "VESELÉ VIANOCE Z BUDAPEŠTI!";
+    } else if (countryCode === "si") {
+      languageText = "VESEL BOŽIČ IZ BUDIMPEŠTE!";
+    } else if (countryCode === "es") {
+      languageText = "¡FELIZ NAVIDAD DESDE BUDAPEST!";
+    } else if (countryCode === "se") {
+      languageText = "GOD JUL FRÅN BUDAPEST!";
+    } else if (countryCode === "th") {
+      languageText = "สุขสันต์วันคริสต์มาสจากบูดาเปสต์!";
+    } else if (countryCode === "tr") {
+      languageText = "BUDAPEŞTE'DEN MUTLU NOELLER!";
+    } else if (countryCode === "ua") {
+      languageText = "З РІЗДВОМ БУДАПЕШТУ!";
+    } else if (countryCode === "vn") {
+      languageText = "MERRY CHRISTMAS TỪ BUDAPEST!";
+    } else if (countryCode === "us") {
+      languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+    } else {
+      languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
     }
-
-    // let target = e.currentTarget;
-    // target.classList.toggle('selected')
-    // console.log(target);
+  
+    // Update the language text and send it to the projector screen via IPC
+    setSourceLang(languageText);
+    window.electron.ipcRenderer.send("language-changed", languageText);
   }
+  
 
   function onPickImages(images) {
     setImages({images})

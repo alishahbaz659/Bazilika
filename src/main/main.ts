@@ -9,7 +9,7 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, screen } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -24,43 +24,44 @@ class AppUpdater {
     autoUpdater.checkForUpdatesAndNotify();
   }
 }
-console.log("sd")
+
 let mainWindow: BrowserWindow | null = null;
+let projectorWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', (event, arg) => {
-
   const msgTemplate = (pingPong: string) => `${pingPong}`;
-  // console.log(msgTemplate(arg));
-    // Get the userData directory and create a subdirectory for captured images
+  // Get the userData directory and create a subdirectory for captured images
   const dir = path.join(app.getPath('userData'), 'captured_images');
 
-    // Ensure the directory exists
+  // Ensure the directory exists
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true }); // Create the directory, including parent folders if needed
     console.log("Folder didn't exist, new folder created");
   }
 
-    const data = msgTemplate(arg).replace(/^data:image\/\w+;base64,/, "");
+  const data = msgTemplate(arg).replace(/^data:image\/\w+;base64,/, "");
 
-    // Update filePath to use the correct directory path
-    const filePath = path.join(dir, `image${Date.now()}.png`);
+  // Update filePath to use the correct directory path
+  const filePath = path.join(dir, `image${Date.now()}.png`);
 
-    const imageBuffer = Buffer.from(data, "base64");
+  const imageBuffer = Buffer.from(data, "base64");
 
-    fs.writeFile(filePath, imageBuffer, (err) => {
-    if (err)
-      console.log(err);
-      else{
-        console.log("Image Saved");
-        send_mail(filePath,arg[1],event)
-        }
-    });
-
+  fs.writeFile(filePath, imageBuffer, (err) => {
+    if (err) console.log(err);
+    else {
+      console.log("Image Saved");
+      send_mail(filePath, arg[1], event);
+    }
+  });
 });
 
+ipcMain.on('language-changed', (event, language) => {
+  if (projectorWindow) {
+    projectorWindow.webContents.send('update-language', language);
+  }
+});
 
-function send_mail(filePath,email,event){
-
+function send_mail(filePath, email, event) {
   const msgTemplate = (pingPong: string) => `${pingPong}`;
   const transporter = nodemailer.createTransport({
     host: 'smtp.m1.websupport.sk', // The SMTP host provided by the client
@@ -68,41 +69,35 @@ function send_mail(filePath,email,event){
     secure: false, // False for TLS (port 587), true for SSL (port 465)
     auth: {
       user: 'adventbazilika@gifie.hu', // Your email address
-      pass: 'Advent123!' // Your password
-    }
+      pass: 'Advent123!', // Your password
+    },
   });
 
   fs.readFile(filePath, function (err, data) {
-   return new Promise(function(resolve,reject){
-    var fieldheader = `Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál.<br> Alább megtalálod csatolt fájlként a vásárban készült képedet! <br> Boldog Karácsonyt kívánunk! <br><br>Dear Visitor,
-    <br>Thank you for visiting our Advent Feast at the Basilica.
-    <br>Please find attached the picture you have taken.
-    <br>We wish you a merry Christmas!
-    <br>
-    `
-    transporter.sendMail({
-      from: 'adventbazilika@gifie.hu',
-      to: email,
-      subject: 'Bazilika',
-      // text: 'Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál. Alább megtalálod csatolt fájlként a vásárban készült képedet! Boldog Karácsonyt kívánunk! ',
-      html:fieldheader,
-      attachments: [{ filename: path.basename(filePath), content: data }]
-    }, function (err, success) {
-      if (err) {
-        // Handle error
-        console.log(err);
-        reject(err);
-      }else{
-        resolve(success)
-        console.log("Mail sent");
-        event.reply('ipc-example', msgTemplate('mailSent'));
-      }
-
-    })
-  })
-});
+    return new Promise(function (resolve, reject) {
+      var fieldheader = `Kedves Látogató! Köszönjük, hogy meglátogattad adventi vásárunkat a Bazilikánál.<br> Alább megtalálod csatolt fájlként a vásárban készült képedet! <br> Boldog Karácsonyt kívánunk! <br><br>Dear Visitor,<br>Thank you for visiting our Advent Feast at the Basilica.<br>Please find attached the picture you have taken.<br>We wish you a merry Christmas!<br>`;
+      transporter.sendMail(
+        {
+          from: 'adventbazilika@gifie.hu',
+          to: email,
+          subject: 'Bazilika',
+          html: fieldheader,
+          attachments: [{ filename: path.basename(filePath), content: data }],
+        },
+        function (err, success) {
+          if (err) {
+            console.log(err);
+            reject(err);
+          } else {
+            resolve(success);
+            console.log("Mail sent");
+            event.reply('ipc-example', msgTemplate('mailSent'));
+          }
+        }
+      );
+    });
+  });
 }
-
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -129,7 +124,7 @@ const installExtensions = async () => {
     .catch(console.log);
 };
 
-const createWindow = async () => {
+const createWindows = async () => {
   if (isDebug) {
     await installExtensions();
   }
@@ -142,18 +137,24 @@ const createWindow = async () => {
     return path.join(RESOURCES_PATH, ...paths);
   };
 
+  const displays = screen.getAllDisplays();
+  const laptopScreen = displays[0];
+  const externalScreen = displays.length > 1 ? displays[1] : displays[0];
+
+  // Screen A: User Interaction (Laptop Screen)
   mainWindow = new BrowserWindow({
-    show: false,
-    width: 1024,
-    height: 728,
-    frame:true,
-    fullscreen:false,
+    x: laptopScreen.bounds.x,
+    y: laptopScreen.bounds.y,
+    width: 1280,
+    height: 800,
+    frame: true,
+    fullscreen: false,
     icon: getAssetPath('icon.png'),
     webPreferences: {
-      devTools:!app.isPackaged,
+      devTools: !app.isPackaged,
       allowRunningInsecureContent: true,
       nodeIntegration: true,
-      webSecurity:false,
+      webSecurity: false,
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
@@ -176,6 +177,22 @@ const createWindow = async () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
+
+  // Screen B: Projector (External Screen)
+  projectorWindow = new BrowserWindow({
+    x: externalScreen.bounds.x,
+    y: externalScreen.bounds.y,
+    width: 1920,
+    height: 1080,
+    frame: false,
+    fullscreen: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+
+  projectorWindow.loadFile('src/renderer/projector.html');
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
@@ -206,11 +223,11 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
-    createWindow();
+    createWindows();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open.
-      if (mainWindow === null) createWindow();
+      if (mainWindow === null) createWindows();
     });
   })
   .catch(console.log);
