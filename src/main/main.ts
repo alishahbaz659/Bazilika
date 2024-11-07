@@ -186,7 +186,10 @@ const createWindows = async () => {
     height: 1080,
     frame: false,
     fullscreen: true,
+    transparent: true, // Important for alpha transparency
+    backgroundColor: '#00000000', // Explicit transparent background
     webPreferences: {
+      backgroundThrottling: false, 
       nodeIntegration: true,
       contextIsolation: false,
       devTools: !app.isPackaged,
