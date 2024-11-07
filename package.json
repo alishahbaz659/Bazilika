@@ -257,6 +257,10 @@
       "output": "release/build"
     },
     "extraResources": [
+      {
+        "from": "src/renderer/projector.html",
+        "to": "renderer/projector.html"
+      },
       "./assets/**"
     ],
     "publish": {

@@ -184,12 +184,12 @@ const createWindows = async () => {
     y: externalScreen.bounds.y,
     width: 1920,
     height: 1080,
-    frame: true,
-    fullscreen: false,
+    frame: false,
+    fullscreen: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      devTools: true,
+      devTools: !app.isPackaged,
       allowRunningInsecureContent: true,
       webSecurity: false,
       preload: app.isPackaged
@@ -198,14 +198,14 @@ const createWindows = async () => {
     },
   });
 
-  projectorWindow.webContents.openDevTools();
-  projectorWindow.loadFile('src/renderer/projector.html');
+  // projectorWindow.webContents.openDevTools();
+  // projectorWindow.loadFile('src/renderer/projector.html');
 
-//   const projectorFilePath = app.isPackaged
-//   ? path.join(__dirname, '../renderer/projector.html')
-//   : path.join(__dirname, '../../src/renderer/projector.html');
-
-// projectorWindow.loadFile(projectorFilePath);
+  projectorWindow.loadFile(
+    app.isPackaged
+      ? path.join(process.resourcesPath, 'renderer/projector.html')
+      : 'src/renderer/projector.html'
+  );
  
 
 
