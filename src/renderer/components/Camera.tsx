@@ -51,178 +51,62 @@ let imageList = [
 ];
 
 let countriesList = [
-  {
-    id: "1",
-    countryCode:"al",
-    title:"Albania"
-  },
-
-  {
-    id: "2",
-    countryCode:"am",
-    title:"Armenia"
-  },
-
-  {
-    id: "3",
-    countryCode:"ba",
-    title:"Bosnia"
-  },
-
-  {
-    id: "4",
-    countryCode:"bg",
-    title:"Bulgaria"
-  },
-  {
-    id: "5",
-    countryCode:"hr",
-    title:"Croatia"
-  },
-  {
-    id: "6",
-    countryCode:"cz",
-    title:"Czech Republic"
-  },
-  {
-    id: "7",
-    countryCode:"dk",
-    title:"Denmark"
-  },
-  {
-    id: "8",
-    countryCode:"ee",
-    title:"Estonia"
-  },
-  {
-    id: "9",
-    countryCode:"fi",
-    title:"Finland"
-  },{
-    id: "10",
-    countryCode:"fr",
-    title:"France"
-  },{
-    id: "11",
-    countryCode:"de",
-    title:"Germany"
-  },{
-    id: "12",
-    countryCode:"gr",
-    title:"Greece"
-  },{
-    id: "13",
-    countryCode:"hu",
-    title:"Hungary"
-  },{
-    id: "14",
-    countryCode:"is",
-    title:"Iceland"
-  },{
-    id: "15",
-    countryCode:"ie",
-    title:"Ireland"
-  },{
-    id: "16",
-    countryCode:"il",
-    title:"Israel"
-  },{
-    id: "17",
-    countryCode:"it",
-    title:"Italy"
-  },{
-    id: "18",
-    countryCode:"jp",
-    title:"Japan  "
-  },{
-    id: "19",
-    countryCode:"kp",
-    title:"Korean"
-  },{
-    id: "20",
-    countryCode:"lv",
-    title:"Latvia"
-  },{
-    id: "21",
-    countryCode:"lt",
-    title:"Lithuania"
-  },{
-    id: "22",
-    countryCode:"lu",
-    title:"Luxembourg"
-  },{
-    id: "23",
-    countryCode:"mk",
-    title:"Macedonia"
-  },{
-    id: "24",
-    countryCode:"mt",
-    title:"Malta"
-  },{
-    id: "25",
-    countryCode:"no",
-    title:"Norway"
-  },{
-    id: "26",
-    countryCode:"pl",
-    title:"Poland"
-  },{
-    id: "27",
-    countryCode:"pt",
-    title:"Portugal"
-  },{
-    id: "28",
-    countryCode:"ro",
-    title:"Romania"
-  },{
-    id: "29",
-    countryCode:"ru",
-    title:"Russia"
-  },{
-    id: "30",
-    countryCode:"rs",
-    title:"Serbia"
-  },{
-    id: "31",
-    countryCode:"sk",
-    title:"Slovakia"
-  },{
-    id: "32",
-    countryCode:"si",
-    title:"Slovenia"
-  },{
-    id: "33",
-    countryCode:"es",
-    title:"spain"
-  },{
-    id: "34",
-    countryCode:"se",
-    title:"Swedish"
-  },{
-    id: "35",
-    countryCode:"th",
-    title:"Thailand"
-  },{
-    id: "36",
-    countryCode:"tr",
-    title:"Turkey"
-  },{
-    id: "37",
-    countryCode:"ua",
-    title:"Ukraine"
-  },{
-    id: "38",
-    countryCode:"vn",
-    title:"Vietnam"
-  },{
-    id: "39",
-    countryCode:"us",
-    title:"America"
-  }
-
-
-
+  { id: "1", countryCode: "al", title: "Albania" },
+  { id: "2", countryCode: "am", title: "Armenia" },
+  { id: "3", countryCode: "ba", title: "Bosnia" },
+  { id: "4", countryCode: "bg", title: "Bulgaria" },
+  { id: "5", countryCode: "hr", title: "Croatia" },
+  { id: "6", countryCode: "cz", title: "Czech Republic" },
+  { id: "7", countryCode: "dk", title: "Denmark" },
+  { id: "8", countryCode: "ee", title: "Estonia" },
+  { id: "9", countryCode: "fi", title: "Finland" },
+  { id: "10", countryCode: "fr", title: "France" },
+  { id: "11", countryCode: "de", title: "Germany" },
+  { id: "12", countryCode: "gr", title: "Greece" },
+  { id: "13", countryCode: "hu", title: "Hungary" },
+  { id: "14", countryCode: "is", title: "Iceland" },
+  { id: "15", countryCode: "ie", title: "Ireland" },
+  { id: "16", countryCode: "il", title: "Israel" },
+  { id: "17", countryCode: "it", title: "Italy" },
+  { id: "18", countryCode: "jp", title: "Japan" },
+  { id: "19", countryCode: "kp", title: "Korea" },
+  { id: "20", countryCode: "lv", title: "Latvia" },
+  { id: "21", countryCode: "lt", title: "Lithuania" },
+  { id: "22", countryCode: "lu", title: "Luxembourg" },
+  { id: "23", countryCode: "mk", title: "Macedonia" },
+  { id: "24", countryCode: "mt", title: "Malta" },
+  { id: "25", countryCode: "no", title: "Norway" },
+  { id: "26", countryCode: "pl", title: "Poland" },
+  { id: "27", countryCode: "pt", title: "Portugal" },
+  { id: "28", countryCode: "ro", title: "Romania" },
+  { id: "29", countryCode: "ru", title: "Russia" },
+  { id: "30", countryCode: "rs", title: "Serbia" },
+  { id: "31", countryCode: "sk", title: "Slovakia" },
+  { id: "32", countryCode: "si", title: "Slovenia" }, 
+  { id: "33", countryCode: "es", title: "Spain" },
+  { id: "34", countryCode: "se", title: "Sweden" },
+  { id: "35", countryCode: "th", title: "Thailand" },
+  { id: "36", countryCode: "tr", title: "Turkey" },
+  { id: "37", countryCode: "ua", title: "Ukraine" },
+  { id: "38", countryCode: "vn", title: "Vietnam" },
+  { id: "39", countryCode: "us", title: "America" },
+  { id: "40", countryCode: "au", title: "Australia" },
+  { id: "41", countryCode: "br", title: "Brazil" },
+  { id: "42", countryCode: "ca", title: "Canada" },
+  { id: "43", countryCode: "cn", title: "China" },
+  { id: "44", countryCode: "in", title: "India" },
+  { id: "45", countryCode: "mx", title: "Mexico" },
+  { id: "46", countryCode: "nl", title: "Netherlands" },
+  { id: "47", countryCode: "nz", title: "New Zealand" },
+  { id: "48", countryCode: "za", title: "South Africa" },
+  { id: "49", countryCode: "ch", title: "Switzerland" },
+  { id: "50", countryCode: "gb", title: "United Kingdom" },
+  { id: "51", countryCode: "ge", title: "Georgia" },
+  { id: "52", countryCode: "kz", title: "Kazakhstan" },
+  { id: "53", countryCode: "ps", title: "Palestine" },
+  { id: "54", countryCode: "ir", title: "Iran" },
 ];
+
 
 const defaultCount = 6;
 const intervalGap = 1000;
@@ -539,93 +423,180 @@ export default function Camera(props) {
     // target.classList.toggle('selected')
     // console.log(target);
   }
+
+  
   function selectedLanguage(countryCode) {
     let languageText = "";
-  
-    if (countryCode === "al") {
-      languageText = "GËZUAR KRISHTLINDJET NGA BUDAPESTI!";
-    } else if (countryCode === "am") {
-      languageText = "ՇՆՈՐՀԱՎՈՐ Սուրբ Ծնունդ ԲՈՒԴԱՊԵՇՏԻՑ:";
-    } else if (countryCode === "ba") {
-      languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTA!";
-    } else if (countryCode === "bg") {
-      languageText = "ЧЕСТИТА КОЛЕДА ОТ БУДАПЕЩА!";
-    } else if (countryCode === "hr") {
-      languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTE!";
-    } else if (countryCode === "cz") {
-      languageText = "VESELÉ VÁNOCE Z BUDAPEŠTĚ!";
-    } else if (countryCode === "dk") {
-      languageText = "GLÆDELIG JUL FRA BUDAPEST!";
-    } else if (countryCode === "ee") {
-      languageText = "HÄID JÕULE BUDAPESTIST!";
-    } else if (countryCode === "fi") {
-      languageText = "HYVÄÄ JOULUA BUDAPESTISTA!";
-    } else if (countryCode === "fr") {
-      languageText = "JOYEUX NOËL DEPUIS BUDAPEST!";
-    } else if (countryCode === "de") {
-      languageText = "FROHE WEIHNACHTEN AUS BUDAPEST!";
-    } else if (countryCode === "gr") {
-      languageText = "ΚΑΛΑ ΧΡΙΣΤΟΥΓΕΝΝΑ ΑΠΟ ΒΟΥΔΑΠΕΣΤΗ!";
-    } else if (countryCode === "hu") {
-      languageText = "BOLDOG KARÁCSONYT BUDAPESTRŐL!";
-    } else if (countryCode === "ie") {
-      languageText = "NOLLAG Shona ó Bhúdaipeist!";
-    } else if (countryCode === "is") {
-      languageText = "NOLLAG Shona ó Bhúdaipeist!";
-    } else if (countryCode === "il") {
-      languageText = "חג שמח מבודפשט!";
-    } else if (countryCode === "it") {
-      languageText = "BUON NATALE DA BUDAPEST!";
-    } else if (countryCode === "jp") {
-      languageText = "ブダペストからメリークリスマス！";
-    } else if (countryCode === "kp") {
-      languageText = "부다페스트에서 온 메리 크리스마스!";
-    } else if (countryCode === "lv") {
-      languageText = "LĪCUS ZIEMASSVĒTKUS NO BUDAPESTES!";
-    } else if (countryCode === "lt") {
-      languageText = "KALĖDŲ IŠ BUDAPESTO!";
-    } else if (countryCode === "lu") {
-      languageText = "SCHÉI SCHÉI KRËSCHDEG VUN BUDAPEST!";
-    } else if (countryCode === "mk") {
-      languageText = "СРЕЌЕН БОЖИЌ ОД БУДИМПЕШТА!";
-    } else if (countryCode === "mt") {
-      languageText = "IL-MILIED IT-TIENI MINN BUDAPEST!";
-    } else if (countryCode === "no") {
-      languageText = "GOD JUL FRA BUDAPEST!";
-    } else if (countryCode === "pl") {
-      languageText = "WESOŁYCH ŚWIĄT OD BUDAPESZTU!";
-    } else if (countryCode === "pt") {
-      languageText = "FELIZ NATAL DE BUDAPESTE!";
-    } else if (countryCode === "ro") {
-      languageText = "CRACIUN FERICIT DE LA BUDAPEST!";
-    } else if (countryCode === "ru") {
-      languageText = "С РОЖДЕСТВОМ ИЗ БУДАПЕШТА!";
-    } else if (countryCode === "gb sct") {
-      languageText = "Nollaig Chridheil bho BUDAPEST!";
-    } else if (countryCode === "rs") {
-      languageText = "СРЕЋАН БОЖИЋ ИЗ БУДИМПЕШТА!";
-    } else if (countryCode === "sk") {
-      languageText = "VESELÉ VIANOCE Z BUDAPEŠTI!";
-    } else if (countryCode === "si") {
-      languageText = "VESEL BOŽIČ IZ BUDIMPEŠTE!";
-    } else if (countryCode === "es") {
-      languageText = "¡FELIZ NAVIDAD DESDE BUDAPEST!";
-    } else if (countryCode === "se") {
-      languageText = "GOD JUL FRÅN BUDAPEST!";
-    } else if (countryCode === "th") {
-      languageText = "สุขสันต์วันคริสต์มาสจากบูดาเปสต์!";
-    } else if (countryCode === "tr") {
-      languageText = "BUDAPEŞTE'DEN MUTLU NOELLER!";
-    } else if (countryCode === "ua") {
-      languageText = "З РІЗДВОМ БУДАПЕШТУ!";
-    } else if (countryCode === "vn") {
-      languageText = "MERRY CHRISTMAS TỪ BUDAPEST!";
-    } else if (countryCode === "us") {
-      languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
-    } else {
-      languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+
+    switch (countryCode) {
+      case "al":
+        languageText = "GËZUAR KRISHTLINDJET NGA BUDAPESTI!";
+        break;
+      case "am":
+        languageText = "ՇՆՈՐՀԱՎՈՐ Սուրբ Ծնունդ ԲՈՒԴԱՊԵՇՏԻՑ:";
+        break;
+      case "ba":
+        languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTA!";
+        break;
+      case "bg":
+        languageText = "ЧЕСТИТА КОЛЕДА ОТ БУДАПЕЩА!";
+        break;
+      case "hr":
+        languageText = "SRETAN BOŽIĆ IZ BUDIMPEŠTE!";
+        break;
+      case "cz":
+        languageText = "VESELÉ VÁNOCE Z BUDAPEŠTĚ!";
+        break;
+      case "dk":
+        languageText = "GLÆDELIG JUL FRA BUDAPEST!";
+        break;
+      case "ee":
+        languageText = "HÄID JÕULE BUDAPESTIST!";
+        break;
+      case "fi":
+        languageText = "HYVÄÄ JOULUA BUDAPESTISTA!";
+        break;
+      case "fr":
+        languageText = "JOYEUX NOËL DEPUIS BUDAPEST!";
+        break;
+      case "de":
+        languageText = "FROHE WEIHNACHTEN AUS BUDAPEST!";
+        break;
+      case "gr":
+        languageText = "ΚΑΛΑ ΧΡΙΣΤΟΥΓΕΝΝΑ ΑΠΟ ΒΟΥΔΑΠΕΣΤΗ!";
+        break;
+      case "hu":
+        languageText = "BOLDOG KARÁCSONYT BUDAPESTRŐL!";
+        break;
+      case "ie":
+      case "is":
+        languageText = "NOLLAG Shona ó Bhúdaipeist!";
+        break;
+      case "il":
+        languageText = "חג שמח מבודפשט!";
+        break;
+      case "it":
+        languageText = "BUON NATALE DA BUDAPEST!";
+        break;
+      case "jp":
+        languageText = "ブダペストからメリークリスマス！";
+        break;
+      case "kp":
+        languageText = "부다페스트에서 온 메리 크리스마스!";
+        break;
+      case "lv":
+        languageText = "LĪCUS ZIEMASSVĒTKUS NO BUDAPESTES!";
+        break;
+      case "lt":
+        languageText = "KALĖDŲ IŠ BUDAPESTO!";
+        break;
+      case "lu":
+        languageText = "SCHÉI SCHÉI KRËSCHDEG VUN BUDAPEST!";
+        break;
+      case "mk":
+        languageText = "СРЕЌЕН БОЖИЌ ОД БУДИМПЕШТА!";
+        break;
+      case "mt":
+        languageText = "IL-MILIED IT-TIENI MINN BUDAPEST!";
+        break;
+      case "no":
+        languageText = "GOD JUL FRA BUDAPEST!";
+        break;
+      case "pl":
+        languageText = "WESOŁYCH ŚWIĄT OD BUDAPESZTU!";
+        break;
+      case "pt":
+        languageText = "FELIZ NATAL DE BUDAPESTE!";
+        break;
+      case "ro":
+        languageText = "CRACIUN FERICIT DE LA BUDAPEST!";
+        break;
+      case "ru":
+        languageText = "С РОЖДЕСТВОМ ИЗ БУДАПЕШТА!";
+        break;
+      case "gb sct":
+        languageText = "Nollaig Chridheil bho BUDAPEST!";
+        break;
+      case "rs":
+        languageText = "СРЕЋАН БОЖИЋ ИЗ БУДИМПЕШТА!";
+        break;
+      case "sk":
+        languageText = "VESELÉ VIANOCE Z BUDAPEŠTI!";
+        break;
+      case "si":
+        languageText = "VESEL BOŽIČ IZ BUDIMPEŠTE!";
+        break;
+      case "es":
+        languageText = "¡FELIZ NAVIDAD DESDE BUDAPEST!";
+        break;
+      case "se":
+        languageText = "GOD JUL FRÅN BUDAPEST!";
+        break;
+      case "th":
+        languageText = "สุขสันต์วันคริสต์มาสจากบูดาเปสต์!";
+        break;
+      case "tr":
+        languageText = "BUDAPEŞTE'DEN MUTLU NOELLER!";
+        break;
+      case "ua":
+        languageText = "З РІЗДВОМ БУДАПЕШТУ!";
+        break;
+      case "vn":
+        languageText = "MERRY CHRISTMAS TỪ BUDAPEST!";
+        break;
+      case "us":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "au":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "br":
+        languageText = "FELIZ NATAL DE BUDAPESTE!";
+        break;
+      case "ca":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "cn":
+        languageText = "来自布达佩斯的圣诞快乐！";
+        break;
+      case "in":
+        languageText = "बुडापेस्ट से मैरी क्रिसमस!";
+        break;
+      case "mx":
+        languageText = "¡FELIZ NAVIDAD DESDE BUDAPEST!";
+        break;
+      case "nl":
+        languageText = "VROLIJK KERSTFEEST UIT BOEDAPEST!";
+        break;
+      case "nz":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "za":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "ch":
+        languageText = "FROHE WEIHNACHTEN AUS BUDAPEST!";
+        break;
+      case "gb":
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
+      case "ge":
+        languageText = "გილოცავთ შობას ბუდაპეშტიდან!";
+        break;
+      case "kz":
+        languageText = "Рождесто мерекесі құтты болсын!";
+        break;
+      case "ps":
+        languageText = "تحيات من بودابست!";
+        break;
+      case "ir":
+        languageText = "کریسمس مبارک، از بوداپست";
+        break;
+      default:
+        languageText = "MERRY CHRISTMAS FROM BUDAPEST!";
+        break;
     }
-  
+
     // Update the language text and send it to the projector screen via IPC
     setSourceLang(languageText);
     window.electron.ipcRenderer.send("language-changed", languageText);
@@ -643,124 +614,124 @@ export default function Camera(props) {
     </div>
     );
 
-    const OverlayText = () => (
-      <div className="textOverlay" style={{margin:"-2.2%"}}>
-      <p className="overlayText">{sourceLang}</p>
-      </div>
-      );
+  const OverlayText = () => (
+    <div className="textOverlay" style={{margin:"-2.2%"}}>
+    <p className="overlayText">{sourceLang}</p>
+    </div>
+    );
 
-      const OverlayTimer = () => (
-        <div className="textOverlayTimer">
-        {showTimer && <div className="timerStyle"> {timerCount}</div>}
-        </div>
-        );
+  const OverlayTimer = () => (
+    <div className="textOverlayTimer">
+    {showTimer && <div className="timerStyle"> {timerCount}</div>}
+    </div>
+    );
 
 
-        const fireAlert = () => {
+    const fireAlert = () => {
 
-          Swal.fire({
-            title: "Confirmation",
-            showConfirmButton: true,
-            showCancelButton: true,
-            allowOutsideClick:false,
-            confirmButtonText: "LIKE IT",
-            cancelButtonText: "TRY AGAIN",
-            icon: 'question'
-          }
-          ).then((result) => {
+      Swal.fire({
+        title: "Confirmation",
+        showConfirmButton: true,
+        showCancelButton: true,
+        allowOutsideClick:false,
+        confirmButtonText: "LIKE IT",
+        cancelButtonText: "TRY AGAIN",
+        icon: 'question'
+      }
+      ).then((result) => {
 
-            if (result.isConfirmed) {
+        if (result.isConfirmed) {
 
-              var node = document.getElementById('webcamdiv');
-              if(node){
-                htmlToImage.toPng(node, { quality: 1,canvasWidth:1920,canvasHeight:1080,pixelRatio:1})
-                .then(function (dataUrl) {
-                  // var img = new Image();
-                  // img.src = dataUrl;
-                  // saveAs(dataUrl, 'exported-vis.png')
-  
-                  const imageSrc =dataUrl;
-  
-                  (async () => {
-                    const { value: email } = await Swal.fire({
-                      title: 'LET US SHARE YOUR SELFIE WITH YOU !',
-                      input: 'email',
-                      inputPlaceholder: 'Enter your email address',
-                      showCancelButton: true,
-                      allowOutsideClick:false,
-                    })
-  
-                    if (email) {
+          var node = document.getElementById('webcamdiv');
+          if(node){
+            htmlToImage.toPng(node, { quality: 1,canvasWidth:1920,canvasHeight:1080,pixelRatio:1})
+            .then(function (dataUrl) {
+              // var img = new Image();
+              // img.src = dataUrl;
+              // saveAs(dataUrl, 'exported-vis.png')
+
+              const imageSrc =dataUrl;
+
+              (async () => {
+                const { value: email } = await Swal.fire({
+                  title: 'LET US SHARE YOUR SELFIE WITH YOU !',
+                  input: 'email',
+                  inputPlaceholder: 'Enter your email address',
+                  showCancelButton: true,
+                  allowOutsideClick:false,
+                })
+
+                if (email) {
+                  Swal.fire({
+                    title: 'Sending...',
+                    html: 'Please wait...',
+                    allowEscapeKey: false,
+                    allowOutsideClick: false,
+                    timer: 20000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                      Swal.showLoading()
+                    }
+                  }).then((result) => {
+                    if (result.dismiss === Swal.DismissReason.timer) {
                       Swal.fire({
-                        title: 'Sending...',
-                        html: 'Please wait...',
-                        allowEscapeKey: false,
-                        allowOutsideClick: false,
-                        timer: 20000,
-                        timerProgressBar: true,
-                        didOpen: () => {
-                          Swal.showLoading()
-                        }
-                      }).then((result) => {
-                        if (result.dismiss === Swal.DismissReason.timer) {
-                          Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Internet connectivity issue! Please try again',
-                          })
-                          setPicture("");
-                          // setSourceLang("");
-                          // setSource(overlayDesign1);
-                          // setScreenSaverStatus(true);
-                          // updateUI();
-                          // console.log('Failed! Internet connectivity issue')
-                        }
-                      });
-                      window.electron.ipcRenderer.sendMessage('ipc-example', [imageSrc,email]);
-                      // calling IPC exposed from preload script
-  
-                      window.electron.ipcRenderer.once('ipc-example', (arg) => {
-                        Swal.hideLoading()
-                        Swal.close()
-                        mailSentToast();
-                        setPicture("");
-                        setSourceLang("");
-                        setSource(overlayDesign1);
-                        setScreenSaverStatus(true);
-                        updateUI();
-                      });
-                    }else{
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Internet connectivity issue! Please try again',
+                      })
                       setPicture("");
                       // setSourceLang("");
                       // setSource(overlayDesign1);
                       // setScreenSaverStatus(true);
                       // updateUI();
+                      // console.log('Failed! Internet connectivity issue')
                     }
-  
-                  })()
-  
-  
-                })
-                .catch(function (error) {
-                  console.error('oops, something went wrong!', error);
-                });
-              } else{
-                setPicture("");
-                // setSourceLang("");
-                // setSource(overlayDesign1);
-  
-                // setScreenSaverStatus(true);
-                // updateUI();
-                // Swal.fire(' Cancelled', '', 'error')
-              }
-              }
-          })
-        }
+                  });
+                  window.electron.ipcRenderer.sendMessage('ipc-example', [imageSrc,email]);
+                  // calling IPC exposed from preload script
 
-        const screenSaverClick = () =>{
-          setScreenSaverStatus(false);
-          document.body.style.backgroundImage=`url(${null})`;
-        }
+                  window.electron.ipcRenderer.once('ipc-example', (arg) => {
+                    Swal.hideLoading()
+                    Swal.close()
+                    mailSentToast();
+                    setPicture("");
+                    setSourceLang("");
+                    setSource(overlayDesign1);
+                    setScreenSaverStatus(true);
+                    updateUI();
+                  });
+                }else{
+                  setPicture("");
+                  // setSourceLang("");
+                  // setSource(overlayDesign1);
+                  // setScreenSaverStatus(true);
+                  // updateUI();
+                }
+
+              })()
+
+
+            })
+            .catch(function (error) {
+              console.error('oops, something went wrong!', error);
+            });
+          } else{
+            setPicture("");
+            // setSourceLang("");
+            // setSource(overlayDesign1);
+
+            // setScreenSaverStatus(true);
+            // updateUI();
+            // Swal.fire(' Cancelled', '', 'error')
+          }
+          }
+      })
+    }
+
+    const screenSaverClick = () =>{
+      setScreenSaverStatus(false);
+      document.body.style.backgroundImage=`url(${null})`;
+    }
 
         function updateUI(){
           // document.body.style.backgroundImage = `url('${screenSaver}')`;
