@@ -227,7 +227,6 @@ const createWindows = async () => {
   });
   
 
-
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   // new AppUpdater();
@@ -240,6 +239,10 @@ const createWindows = async () => {
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
+  if (projectorWindow && !projectorWindow.isDestroyed()) {
+    projectorWindow.destroy(); // Forcefully destroy the projector window if still open
+  }
+
   if (process.platform !== 'darwin') {
     app.quit();
   }
