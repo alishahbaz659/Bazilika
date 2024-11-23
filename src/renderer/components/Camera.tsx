@@ -119,7 +119,7 @@ export default function Camera(props) {
   const location = useLocation();
   const deviceId  = location.state.id;
   const webcamRef = useRef(null);
-  const [mirrored, setMirrored] = useState(false);
+  const [mirrored, setMirrored] = useState(true);
   const [timerCount, setTimerCount] = useState(defaultCount);
   const [showTimer, setTimerText] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -134,6 +134,7 @@ export default function Camera(props) {
   const [layout, setLayout] = useState("default");
   const keyboard = useRef();
   const [screenSaverStatus,setScreenSaverStatus] = useState(true);
+  const [nonMirroredCapture, setNonMirroredCapture] = useState(false);
 
 
   let timer = null;
@@ -237,36 +238,39 @@ export default function Camera(props) {
     elem.remove()
   }
 
+  // UseEffect to handle mirroring toggle when preparing for capture
+  useEffect(() => {
+    if (nonMirroredCapture) {
+      // Disable mirroring
+      setMirrored(false);
+
+      // Wait for mirroring to be set and then take the screenshot
+      const timeout = setTimeout(() => {
+        if (webcamRef.current) {
+          const imageSrc = webcamRef.current.getScreenshot();
+          setPicture(imageSrc);
+
+          // Restore mirroring after capture
+          setMirrored(true);
+          setNonMirroredCapture(false); // Reset the capture state
+        }
+      }, 100); // A slight delay to ensure the DOM updates
+
+      // Cleanup timeout
+      return () => clearTimeout(timeout);
+    }
+  }, [nonMirroredCapture]);
 
   const captureScreenshot = useCallback(() => {
 
-    if (!webcamRef.current) return;
-
-    const imageSrc = webcamRef.current?.getScreenshot();
-    setPicture(imageSrc)
+    // Set non-mirrored capture to true
+    setNonMirroredCapture(true);
 
   }, [webcamRef,setPicture]);
 
 
 
   function mailSentToast(){
-    // const Toast = Swal.mixin({
-    //   toast: true,
-    //   position: 'top-end',
-    //   showConfirmButton: false,
-    //   timer: 3000,
-    //   timerProgressBar: true,
-    //   didOpen: (toast) => {
-    //     toast.addEventListener('mouseenter', Swal.stopTimer)
-    //     toast.addEventListener('mouseleave', Swal.resumeTimer)
-    //   }
-    // })
-
-    // Toast.fire({
-    //   icon: 'success',
-    //   title: 'sent successfully'
-    // })
-
     Swal.fire({
       icon: 'success',
       title: 'Mail sent Successfully',
@@ -299,18 +303,6 @@ export default function Camera(props) {
           func(timeInterval)
         }, intervalGap)
       }else{
-        // const Toast = Swal.mixin({
-        //   toast: true,
-        //   position: 'top-end',
-        //   showConfirmButton: false,
-        //   timer: 3000,
-        //   timerProgressBar: true,
-        //   didOpen: (toast) => {
-        //     toast.addEventListener('mouseenter', Swal.stopTimer)
-        //     toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //   }
-        // })
-
         Swal.fire({
           icon: 'warning',
           title: 'Please agree to terms & conditions',
@@ -370,7 +362,7 @@ export default function Camera(props) {
   }), []);
 
   const webcamProps = {
-    mirrored:false,
+    mirrored:mirrored,
     audio: false,
     forceScreenshotSourceSize: true,
     screenshotQuality: 1,
@@ -386,7 +378,7 @@ export default function Camera(props) {
   };
 
   const webcamPropsIdle = {
-    mirrored:false,
+    mirrored:mirrored,
     audio: false,
     forceScreenshotSourceSize: true,
     screenshotQuality: 1,
@@ -724,6 +716,10 @@ export default function Camera(props) {
             // updateUI();
             // Swal.fire(' Cancelled', '', 'error')
           }
+          }else if(result.dismiss === Swal.DismissReason.cancel){
+            // Reset to live webcam when "Try Again" is clicked
+            setPicture("");
+            setScreenSaverStatus(false); // Ensure screensaver mode is turned off
           }
       })
     }
