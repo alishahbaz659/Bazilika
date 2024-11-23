@@ -370,7 +370,7 @@ export default function Camera(props) {
   }), []);
 
   const webcamProps = {
-    mirrored:true,
+    mirrored:false,
     audio: false,
     forceScreenshotSourceSize: true,
     screenshotQuality: 1,
@@ -386,7 +386,7 @@ export default function Camera(props) {
   };
 
   const webcamPropsIdle = {
-    mirrored:true,
+    mirrored:false,
     audio: false,
     forceScreenshotSourceSize: true,
     screenshotQuality: 1,
